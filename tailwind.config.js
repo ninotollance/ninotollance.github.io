@@ -1,5 +1,10 @@
-// Configuration Tailwind (version CDN) — palette A « Ardoise & bleu »
-tailwind.config = {
+// Configuration Tailwind — palette A « Ardoise & bleu »
+// Après avoir ajouté ou changé des classes Tailwind dans le HTML ou le JS,
+// régénère le CSS depuis la racine du projet :
+//   npx tailwindcss@3 -i assets/css/tailwind.src.css -o assets/css/tailwind.css --minify
+module.exports = {
+  content: ['./index.html', './projets/**/*.html', './assets/js/**/*.js'],
+
   darkMode: 'class',
   theme: {
     extend: {
