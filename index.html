@@ -1,0 +1,382 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+    <title>Portfolio de Nino</title>
+  <meta name="description" content="Portfolio de Nino Tollance, développeur web full-stack en formation Concepteur Développeur d'Applications. Projets, parcours, soutenances et contact.">
+
+  <!-- Thème appliqué avant l'affichage pour éviter un flash blanc en mode nuit -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches)) d.classList.add('dark');
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="assets/js/tailwind.config.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+
+<script>document.body.className="bg-paper text-ink dark:bg-night dark:text-night-ink font-sans"</script>
+
+  <!-- Trait qui fait le tour de l'écran en 2 minutes -->
+  <svg class="perimeter" aria-hidden="true">
+    <rect class="perimeter__track" fill="none" stroke-width="2" rx="10"></rect>
+    <rect class="perimeter__line" fill="none" stroke-width="2" rx="10" pathLength="100" stroke-linecap="round"></rect>
+  </svg>
+
+  <a href="#contenu" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:bg-accent focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">Aller au contenu</a>
+
+  <!-- ================= EN-TÊTE ================= -->
+  <header class="site-header fixed top-0 inset-x-0 z-50 border-b border-transparent">
+    <nav class="max-w-site mx-auto px-6 h-[72px] flex items-center justify-between gap-4" aria-label="Navigation principale">
+      <a href="#top" class="font-bold text-lg tracking-tight" aria-label="Nino, retour en haut de page"><span aria-hidden="true">N<span class="logo-i">i</span>no<span class="text-accent dark:text-accent-night">.</span></span></a>
+
+      <ul id="menu" class="hidden lg:flex items-center gap-7 text-[15px]">
+        <li><a class="nav-link" href="#apropos">Moi en bref</a></li>
+        <li><a class="nav-link" href="#projets">Projets</a></li>
+        <li><a class="nav-link" href="#competences">Compétences</a></li>
+        <li><a class="nav-link" href="#parcours">Parcours</a></li>
+        <li><a class="nav-link" href="#soutenances">Soutenances</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2">
+        <button type="button" id="theme-toggle" class="w-11 h-11 rounded-full border border-line dark:border-night-line flex items-center justify-center hover:border-ink/40 dark:hover:border-night-ink/40" aria-label="Basculer le mode jour / nuit">
+          <svg data-theme-icon class="w-5 h-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg data-theme-icon class="w-5 h-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <button type="button" id="menu-toggle" class="burger lg:hidden w-11 h-11 rounded-full border border-line dark:border-night-line flex items-center justify-center" aria-expanded="false" aria-controls="menu-mobile" aria-label="Ouvrir le menu">
+          <span class="burger__lines" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Menu mobile (déroulant animé) -->
+    <div id="menu-mobile" class="m-menu lg:hidden" aria-hidden="true">
+      <div class="m-menu__inner">
+        <ul class="max-w-site mx-auto px-6 pt-2 pb-6">
+          <li style="--i:0"><a class="m-link" href="#apropos"><span class="m-link__num">01</span><span class="m-link__label">Moi en bref</span><span class="m-link__arrow" aria-hidden="true">→</span></a></li>
+          <li style="--i:1"><a class="m-link" href="#projets"><span class="m-link__num">02</span><span class="m-link__label">Projets</span><span class="m-link__arrow" aria-hidden="true">→</span></a></li>
+          <li style="--i:2"><a class="m-link" href="#competences"><span class="m-link__num">03</span><span class="m-link__label">Compétences</span><span class="m-link__arrow" aria-hidden="true">→</span></a></li>
+          <li style="--i:3"><a class="m-link" href="#parcours"><span class="m-link__num">04</span><span class="m-link__label">Parcours</span><span class="m-link__arrow" aria-hidden="true">→</span></a></li>
+          <li style="--i:4"><a class="m-link" href="#soutenances"><span class="m-link__num">05</span><span class="m-link__label">Soutenances</span><span class="m-link__arrow" aria-hidden="true">→</span></a></li>
+          <li style="--i:5"><a class="m-link" href="#contact"><span class="m-link__num">06</span><span class="m-link__label">Contact</span><span class="m-link__arrow" aria-hidden="true">→</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Voile sombre derrière le menu mobile ouvert -->
+  <div id="menu-backdrop" class="menu-backdrop lg:hidden" aria-hidden="true"></div>
+
+  <main id="contenu">
+
+    <!-- ================= HERO ================= -->
+    <section id="top" class="max-w-site mx-auto px-6 pt-36 pb-24 md:pt-44 md:pb-28 flex flex-col-reverse md:flex-row md:items-center gap-14">
+      <div class="flex-1 min-w-0 flex flex-col gap-6">
+
+        <p class="inline-flex self-start items-center gap-2 rounded-full border-2 border-accent dark:border-accent-night bg-card dark:bg-night-card px-4 py-1.5 text-sm text-muted dark:text-night-muted">
+          <span class="relative flex w-2 h-2">
+            <span class="absolute inline-flex w-full h-full rounded-full bg-accent dark:bg-accent-night opacity-60 motion-safe:animate-ping"></span>
+            <span class="relative inline-flex w-2 h-2 rounded-full bg-accent dark:bg-accent-night"></span>
+          </span>
+          <span>Stage recherché · avril à juin 2027</span>
+        </p>
+
+        <div class="flex flex-col gap-3">
+          <p class="font-mono text-sm text-muted dark:text-night-muted">Bonjour, je suis</p>
+          <h1 class="text-5xl md:text-7xl font-bold tracking-tight leading-[1.02]">Nino Tollance</h1>
+          <p class="text-xl md:text-2xl text-muted dark:text-night-muted">Développeur web full-stack · en formation CDA</p>
+        </div>
+
+        <p class="max-w-xl text-lg leading-relaxed">Je recherche un stage de 2 mois (non rémunéré) où je peux intervenir en front comme en back, de la conception au code.</p>
+
+        <div class="flex flex-wrap gap-3 pt-1">
+          <a href="assets/cv-nino.pdf" download class="inline-flex items-center gap-2 h-12 px-6 rounded-xl bg-accent hover:bg-accent-hover text-white dark:bg-accent-night dark:text-night dark:hover:brightness-110 font-medium transition">
+            <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+            <span>Télécharger mon CV</span>
+          </a>
+          <a href="#contact" class="inline-flex items-center h-12 px-6 rounded-xl border border-ink/80 dark:border-night-ink/70 font-medium hover:bg-ink hover:text-paper dark:hover:bg-night-ink dark:hover:text-night transition">Me contacter</a>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <a href="https://github.com/ninotollance" target="_blank" rel="noopener" aria-label="GitHub" class="w-11 h-11 rounded-xl border border-line dark:border-night-line flex items-center justify-center hover:text-accent dark:hover:text-accent-night hover:border-current transition">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/nino-tollance-29019a275" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-11 h-11 rounded-xl border border-line dark:border-night-line flex items-center justify-center hover:text-accent dark:hover:text-accent-night hover:border-current transition">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v5M8 8v.01M12 16v-5M16 16v-3a2 2 0 0 0-4 0"/></svg>
+          </a>
+          <a href="mailto:ninotollance@gmail.com" aria-label="E-mail" class="w-11 h-11 rounded-xl border border-line dark:border-night-line flex items-center justify-center hover:text-accent dark:hover:text-accent-night hover:border-current transition">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          </a>
+          <a id="timer" data-href="#contact" class="ml-3 inline-flex items-center gap-2 font-mono text-xs text-muted dark:text-night-muted">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <span id="timer-label">2 minutes pour me découvrir</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Photo : place ta photo dans assets/img/photo.jpg -->
+      <div class="flex-none self-center">
+        <div class="relative w-48 h-56 sm:w-60 sm:h-72 md:w-80 md:h-96">
+          <div class="absolute inset-0 translate-x-4 translate-y-4 rounded-[28px] border-2 border-accent/40 dark:border-accent-night/40"></div>
+          <div class="relative w-full h-full rounded-[28px] overflow-hidden bg-line dark:bg-night-card flex items-center justify-center">
+            <span class="text-6xl font-bold text-muted/50 dark:text-night-muted/50" aria-hidden="true">NT</span>
+            <img src="assets/img/photo.jpg" alt="Photo de Nino Tollance" class="absolute inset-0 w-full h-full object-cover" onerror="this.remove()">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= À PROPOS ================= -->
+    <section id="apropos" class="max-w-site mx-auto px-6 py-20 border-t border-line dark:border-night-line">
+      <div class="reveal grid md:grid-cols-[240px_minmax(0,1fr)] gap-8 md:gap-16">
+        <div>
+          <p class="font-mono text-sm text-accent dark:text-accent-night">01</p>
+          <h2 class="text-3xl font-bold tracking-tight mt-1">Moi en bref</h2>
+        </div>
+        <div class="flex flex-col gap-5 text-lg leading-relaxed max-w-2xl">
+          <p>J’ai choisi de me reconvertir dans le développement web. Pour me lancer rapidement, j’ai d’abord suivi une formation accélérée de développeur web full-stack au Greta de Vannes. J’ai ensuite voulu aller plus loin, je prépare aujourd’hui le titre de Concepteur Développeur d’Applications (Greta de Vannes) pour me perfectionner et approfondir mes connaissances.</p>
+          <p>Ce que j’aime dans ce métier, c’est travailler en équipe et apprendre des autres. Pour mon stage, d’avril à juin 2027, je veux découvrir le quotidien d’un développeur en agence : les projets clients, l’organisation de l’équipe et la façon de travailler au jour le jour.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROJETS ================= -->
+    <section id="projets" class="max-w-site mx-auto px-6 py-20 border-t border-line dark:border-night-line">
+      <div class="reveal flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <p class="font-mono text-sm text-accent dark:text-accent-night">02</p>
+          <h2 class="text-3xl font-bold tracking-tight mt-1">Projets</h2>
+        </div>
+      </div>
+
+      <!-- Projet phare : capture en haut, texte en dessous -->
+      <!-- Captures : assets/img/kenweturi.webp (sombre) et kenweturi-light.webp (clair) -->
+      <article class="project-card project-card--split reveal group rounded-3xl border border-line dark:border-night-line bg-card dark:bg-night-card overflow-hidden transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-20px_rgba(47,91,234,.35)] hover:border-accent/40 dark:hover:border-accent-night/40 mt-10">
+        <div class="shot shot--card">
+          <img class="shot-light" src="assets/img/kenweturi-light.webp" alt="Page d’accueil de Kenweturi" loading="lazy" width="1251" height="678" onerror="this.parentNode.classList.add('no-light');this.remove()">
+          <img class="shot-dark" src="assets/img/kenweturi.webp" alt="Page d’accueil de Kenweturi" loading="lazy" width="1337" height="703">
+        </div>
+        <div class="p-8 md:p-10 flex flex-col gap-5">
+          <div class="flex flex-col gap-4 min-w-0">
+            <span class="self-start font-mono text-xs px-2.5 py-1 rounded-md bg-accent/10 text-accent dark:bg-accent-night/15 dark:text-accent-night">Projet phare</span>
+            <div>
+              <h3 class="text-3xl font-bold tracking-tight">Kenweturi</h3>
+              <p class="mt-1 text-muted dark:text-night-muted">Plateforme de covoiturage · projet d'équipe</p>
+            </div>
+            <p class="leading-relaxed">Application web de covoiturage développée en équipe pour le Greta de Vannes. Conducteurs et passagers s’y retrouvent pour proposer, chercher et réserver des trajets.</p>
+          </div>
+          <div class="flex flex-col gap-5 min-w-0">
+            <p class="text-sm"><span class="font-medium">Mon rôle :</span> <span class="text-muted dark:text-night-muted">cahier des charges, conception de la base de données et back-end (modèles, contrôleurs, routes, sécurité)</span></p>
+            <ul class="flex flex-wrap gap-2 text-xs font-mono">
+              <li class="px-2.5 py-1 rounded-md bg-paper dark:bg-night">PHP</li>
+              <li class="px-2.5 py-1 rounded-md bg-paper dark:bg-night">CodeIgniter 4</li>
+              <li class="px-2.5 py-1 rounded-md bg-paper dark:bg-night">Tailwind</li>
+              <li class="px-2.5 py-1 rounded-md bg-paper dark:bg-night">MySQL</li>
+            </ul>
+            <div class="flex flex-wrap gap-3">
+              <a href="projets/kenweturi.html" class="inline-flex items-center gap-2 h-11 px-5 rounded-xl bg-accent hover:bg-accent-hover text-white dark:bg-accent-night dark:text-night text-sm font-medium transition">
+                <span>Étude de cas</span>
+                <svg class="w-4 h-4 transition group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <a href="https://github.com/ninotollance/Kenweturi" target="_blank" rel="noopener" class="inline-flex items-center h-11 px-5 rounded-xl border border-line dark:border-night-line hover:border-current text-sm font-medium transition">Voir le code</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PrediF1 : pas encore de capture, la carte s'affiche sans image.
+           Quand tu as la capture (assets/img/predif1.webp, et predif1-light.webp pour le mode clair) :
+           1. ajoute « project-card--split » dans la classe de l'<article> ci-dessous ;
+           2. colle ce bloc juste après la balise <article ...> :
+        <div class="shot shot--card">
+          <img class="shot-light" src="assets/img/predif1-light.webp" alt="Capture de PrediF1" loading="lazy" onerror="this.parentNode.classList.add('no-light');this.remove()">
+          <img class="shot-dark" src="assets/img/predif1.webp" alt="Capture de PrediF1" loading="lazy">
+        </div>
+      -->
+      <article class="project-card reveal group rounded-3xl border border-line dark:border-night-line bg-card dark:bg-night-card overflow-hidden transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-20px_rgba(47,91,234,.35)] hover:border-accent/40 dark:hover:border-accent-night/40 mt-6">
+        <div class="p-8 md:p-10 flex flex-col gap-5">
+          <div class="flex flex-col gap-4 min-w-0">
+            <div class="flex flex-wrap gap-2">
+              <span class="font-mono text-xs px-2.5 py-1 rounded-md bg-accent/10 text-accent dark:bg-accent-night/15 dark:text-accent-night">Projet de certification</span>
+              <span class="font-mono text-xs px-2.5 py-1 rounded-md border border-line dark:border-night-line text-muted dark:text-night-muted">Refonte en cours</span>
+            </div>
+            <div>
+              <h3 class="text-3xl font-bold tracking-tight">PrediF1</h3>
+              <p class="mt-1 text-muted dark:text-night-muted">Jeu de pronostics Formule 1 · projet solo</p>
+            </div>
+            <p class="leading-relaxed">Choisis le pilote qui remportera le prochain Grand Prix et valide ton pronostic. Le classement des pilotes est mis à jour en temps réel grâce à l’API Jolpica, et se trie par position ou par ordre alphabétique.</p>
+          </div>
+          <div class="flex flex-col gap-5 min-w-0">
+            <ul class="flex flex-wrap gap-2 text-xs font-mono">
+              <li class="px-2.5 py-1 rounded-md bg-paper dark:bg-night">PHP (MVC)</li>
+              <li class="px-2.5 py-1 rounded-md bg-paper dark:bg-night">MySQL</li>
+              <li class="px-2.5 py-1 rounded-md bg-paper dark:bg-night">JavaScript</li>
+              <li class="px-2.5 py-1 rounded-md bg-paper dark:bg-night">API REST</li>
+            </ul>
+            <div class="flex flex-wrap gap-3">
+              <a href="https://github.com/ninotollance/PrediF1" target="_blank" rel="noopener" class="inline-flex items-center h-11 px-5 rounded-xl border border-line dark:border-night-line hover:border-current text-sm font-medium transition">Voir le code</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- TestCDA : projet compact, sans capture -->
+      <article class="project-card reveal group mt-6 rounded-2xl border border-line dark:border-night-line bg-card dark:bg-night-card px-6 py-5 md:px-8 flex flex-wrap items-center gap-x-6 gap-y-3 transition duration-300 hover:-translate-y-0.5 hover:border-accent/40 dark:hover:border-accent-night/40">
+        <span class="font-mono text-xs px-2.5 py-1 rounded-md bg-accent/10 text-accent dark:bg-accent-night/15 dark:text-accent-night">Test d’entrée CDA</span>
+        <h3 class="text-lg font-bold">TestCDA</h3>
+        <p class="flex-1 basis-72 min-w-0 text-sm leading-relaxed text-muted dark:text-night-muted">Gestion d’un portefeuille clients : connexion, espace administrateur, création, recherche, modification et suppression de clients. PHP en MVC, sans framework.</p>
+        <a href="https://github.com/ninotollance/TestCDA" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm font-medium text-accent dark:text-accent-night hover:underline">Voir le code <span aria-hidden="true">↗</span></a>
+      </article>
+
+      <!-- Projet CDA : à transformer en vraie carte quand il démarre -->
+      <article class="reveal mt-6 rounded-2xl border border-dashed border-line dark:border-night-line px-6 py-5 md:px-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+        <span class="inline-flex items-center gap-2 font-mono text-xs px-2.5 py-1 rounded-md border border-line dark:border-night-line text-muted dark:text-night-muted">
+          <span class="relative flex w-2 h-2"><span class="absolute inline-flex w-full h-full rounded-full bg-accent dark:bg-accent-night opacity-60 motion-safe:animate-ping"></span><span class="relative inline-flex w-2 h-2 rounded-full bg-accent dark:bg-accent-night"></span></span>
+          <span>En cours</span>
+        </span>
+        <h3 class="text-lg font-bold">Projet CDA</h3>
+        <p class="flex-1 basis-80 min-w-0 text-sm leading-relaxed text-muted dark:text-night-muted">Une application complète (front, back, base de données et sécurité) que je réalise pendant ma formation. Elle arrivera ici dès qu'elle sera présentable.</p>
+      </article>
+
+      <p class="reveal mt-8 text-sm text-muted dark:text-night-muted">
+        <span>Exercices et autres travaux :</span>
+        <a href="https://github.com/ninotollance" target="_blank" rel="noopener" class="font-medium text-accent dark:text-accent-night hover:underline">github.com/ninotollance ↗</a>
+      </p>
+    </section>
+
+    <!-- ================= COMPÉTENCES ================= -->
+    <section id="competences" class="max-w-site mx-auto px-6 py-20 border-t border-line dark:border-night-line">
+      <div class="reveal flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p class="font-mono text-sm text-accent dark:text-accent-night">03</p>
+          <h2 class="text-3xl font-bold tracking-tight mt-1">Compétences</h2>
+        </div>
+        <ul class="flex flex-wrap items-center gap-3 text-sm text-muted dark:text-night-muted" aria-label="Légende">
+          <li class="flex items-center gap-2"><span class="skill skill--legend" aria-hidden="true"></span><span>Pratiqué</span></li>
+          <li class="flex items-center gap-2"><span class="skill skill--legend is-soon" aria-hidden="true"></span><span>Au programme du CDA</span></li>
+        </ul>
+      </div>
+      <!-- Cartes générées par main.js à partir de assets/js/competences.js -->
+      <div id="skills-grid" class="reveal mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    </section>
+
+    <!-- ================= PARCOURS ================= -->
+    <section id="parcours" class="max-w-site mx-auto px-6 py-20 border-t border-line dark:border-night-line">
+      <div class="grid md:grid-cols-[240px_minmax(0,1fr)] gap-8 md:gap-16">
+        <div class="reveal">
+          <p class="font-mono text-sm text-accent dark:text-accent-night">04</p>
+          <h2 class="text-3xl font-bold tracking-tight mt-1">Parcours</h2>
+        </div>
+        <ol class="relative border-l-2 border-line dark:border-night-line pl-8 flex flex-col gap-10">
+          <li class="reveal relative">
+            <span class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-accent dark:bg-accent-night ring-4 ring-paper dark:ring-night" aria-hidden="true"></span>
+            <p class="font-mono text-sm text-muted dark:text-night-muted">2026 – aujourd'hui</p>
+            <h3 class="text-xl font-bold mt-1">Concepteur Développeur d'Applications</h3>
+            <p class="text-muted dark:text-night-muted">Greta de Vannes</p>
+            <p class="mt-2 leading-relaxed">Java et Spring Boot, Symfony, React, Flutter, conception (UML, Merise) et sécurité. Stage d'avril à juin 2027.</p>
+          </li>
+          <li class="reveal relative">
+            <span class="absolute -left-[39px] top-1 w-3 h-3 rounded-full bg-line dark:bg-night-line ring-4 ring-paper dark:ring-night" aria-hidden="true"></span>
+            <p class="font-mono text-sm text-muted dark:text-night-muted">2025 – 2026</p>
+            <h3 class="text-xl font-bold mt-1">Développeur web full-stack</h3>
+            <p class="text-muted dark:text-night-muted">Greta de Vannes</p>
+            <p class="mt-2 leading-relaxed">PHP, CodeIgniter 4, Tailwind, Git. Projet d'équipe Kenweturi et projet de certification PrediF1.</p>
+          </li>
+          <li class="reveal relative">
+            <span class="absolute -left-[39px] top-1 w-3 h-3 rounded-full bg-line dark:bg-night-line ring-4 ring-paper dark:ring-night" aria-hidden="true"></span>
+            <p class="font-mono text-sm text-muted dark:text-night-muted">[ANNÉES]</p>
+            <h3 class="text-xl font-bold mt-1">[Expérience précédente]</h3>
+            <p class="mt-2 leading-relaxed">[Ce que tu y as fait et ce que ça t'apporte aujourd'hui.]</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= SOUTENANCES ================= -->
+    <section id="soutenances" class="max-w-site mx-auto px-6 py-20 border-t border-line dark:border-night-line">
+      <div class="reveal flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p class="font-mono text-sm text-accent dark:text-accent-night">05</p>
+          <h2 class="text-3xl font-bold tracking-tight mt-1">Soutenances</h2>
+        </div>
+        <!-- Badge de niveau (titre + jauge) rempli par main.js à partir de assets/js/soutenances.js -->
+        <div id="talks-level" class="talk-level"></div>
+      </div>
+
+      <!-- Soutenance mise en avant (la plus récente) -->
+      <div id="talks-featured" class="reveal mt-10"></div>
+
+      <!-- Autres soutenances passées, dépliables -->
+      <div id="talks-more" class="talks-more" aria-hidden="true">
+        <div class="talks-more__inner">
+          <ul id="talks-list" class="mt-4 rounded-2xl border border-line dark:border-night-line bg-card dark:bg-night-card overflow-hidden"></ul>
+        </div>
+      </div>
+      <button type="button" id="talks-toggle" class="talks-toggle hidden mt-6" aria-expanded="false" aria-controls="talks-more">
+        <span id="talks-toggle-label"></span>
+        <svg class="talks-toggle__icon w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="max-w-site mx-auto px-6 py-20 md:pb-28 border-t border-line dark:border-night-line">
+      <div class="grid md:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] gap-12">
+        <div class="reveal flex flex-col gap-4">
+          <p class="font-mono text-sm text-accent dark:text-accent-night">06</p>
+          <h2 class="text-3xl font-bold tracking-tight">Contact</h2>
+          <p class="text-lg leading-relaxed text-muted dark:text-night-muted">Un stage, un projet ou une question ? Écris-moi, je réponds rapidement.</p>
+          <ul class="mt-2 flex flex-col gap-2">
+            <li><a href="mailto:ninotollance@gmail.com" class="hover:text-accent dark:hover:text-accent-night">ninotollance@gmail.com</a></li>
+            <li><a href="https://www.linkedin.com/in/nino-tollance-29019a275" target="_blank" rel="noopener" class="hover:text-accent dark:hover:text-accent-night">LinkedIn ↗</a></li>
+            <li><a href="https://github.com/ninotollance" target="_blank" rel="noopener" class="hover:text-accent dark:hover:text-accent-night">GitHub ↗</a></li>
+          </ul>
+        </div>
+
+        <!-- Formulaire : remplace VOTRE_ID par l'identifiant de ton formulaire Formspree -->
+        <form id="contact-form" action="https://formspree.io/f/VOTRE_ID" method="POST" class="reveal rounded-2xl border border-line dark:border-night-line bg-card dark:bg-night-card p-6 md:p-8 flex flex-col gap-5" novalidate>
+          <div class="grid sm:grid-cols-2 gap-5">
+            <label class="flex flex-col gap-2 text-sm font-medium">
+              <span>Nom</span>
+              <input name="nom" type="text" required autocomplete="name" class="h-12 rounded-xl border border-line dark:border-night-line bg-paper dark:bg-night px-4 font-normal text-base outline-none focus:border-accent dark:focus:border-accent-night focus:ring-4 focus:ring-accent/15">
+            </label>
+            <label class="flex flex-col gap-2 text-sm font-medium">
+              <span>E-mail</span>
+              <input name="email" type="email" required autocomplete="email" class="h-12 rounded-xl border border-line dark:border-night-line bg-paper dark:bg-night px-4 font-normal text-base outline-none focus:border-accent dark:focus:border-accent-night focus:ring-4 focus:ring-accent/15">
+            </label>
+          </div>
+          <label class="flex flex-col gap-2 text-sm font-medium">
+            <span>Message</span>
+            <textarea name="message" rows="6" required class="rounded-xl border border-line dark:border-night-line bg-paper dark:bg-night p-4 font-normal text-base outline-none resize-y focus:border-accent dark:focus:border-accent-night focus:ring-4 focus:ring-accent/15"></textarea>
+          </label>
+          <!-- Champ piège anti-spam (invisible) -->
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden">
+          <div class="flex flex-wrap items-center gap-4">
+            <button type="submit" class="h-12 px-7 rounded-xl bg-accent hover:bg-accent-hover text-white dark:bg-accent-night dark:text-night font-medium transition disabled:opacity-60">Envoyer</button>
+            <p id="form-status" class="text-sm" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-line dark:border-night-line">
+    <div class="max-w-site mx-auto px-6 py-8 flex flex-wrap justify-between gap-3 text-sm text-muted dark:text-night-muted">
+      <p>© <span id="year">2026</span> Nino Tollance</p>
+      <p>Fait main avec HTML, Tailwind et JavaScript · hébergé sur GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/soutenances.js"></script>
+  <script src="assets/js/competences.js"></script>
+  <script src="assets/js/main.js"></script>
+
+
+</body></html>
