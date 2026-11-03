@@ -404,6 +404,14 @@
 
     var all = window.SOUTENANCES.map(function (s, i) { return Object.assign({ n: i + 1 }, s); });
     var total = all.length;
+    // Une soutenance est passée automatiquement le lendemain de sa date.
+    // « statut » reste possible pour forcer : 'passee' ou 'a-venir' (ex. report).
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    all.forEach(function (s) {
+      if (s.statut === 'passee' || s.statut === 'a-venir') return;
+      var p = (s.date || '').split('-');
+      s.statut = p[2] && new Date(+p[0], +p[1] - 1, +p[2]) < today ? 'passee' : 'a-venir';
+    });
     var done = all.filter(function (s) { return s.statut === 'passee'; })
       .sort(function (a, b) { return (b.date || '').localeCompare(a.date || '') || b.n - a.n; });
     var next = all.filter(function (s) { return s.statut !== 'passee'; })[0];
