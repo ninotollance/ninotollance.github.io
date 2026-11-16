@@ -173,8 +173,8 @@ html.menu-open:not(.is-embedded) { overflow: hidden; }
 }
 .dark .skill-card { border-color: #262A33; background: #181B21; }
 /* Effet discret au survol : pas de soulèvement, ce n'est pas un lien */
-.skill-card:hover { border-color: rgb(47 91 234 / .4); }
-.dark .skill-card:hover { border-color: rgb(124 156 255 / .4); }
+.skill-card:hover { border-color: #2F5BEA; }
+.dark .skill-card:hover { border-color: #7C9CFF; }
 .skill-card__title { font-weight: 500; }
 .skill-card__list { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
 
@@ -202,14 +202,14 @@ html.menu-open:not(.is-embedded) { overflow: hidden; }
   padding: 28px;
   border: 1px solid #E2E5EA; border-radius: 24px; overflow: hidden;
   background: #FFFFFF;
-  transition: border-color .3s ease, box-shadow .3s ease;
+  transition: border-color .3s ease;
 }
 @media (min-width: 768px) { .talk-feature { padding: 36px; } }
 /* Grand écran : titre à gauche, résumé et documents à droite */
 @media (min-width: 900px) { .talk-feature { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 56px; padding: 44px; } }
-.talk-feature:hover { border-color: rgb(47 91 234 / .35); box-shadow: 0 20px 50px -24px rgb(47 91 234 / .35); }
+.talk-feature:hover { border-color: #2F5BEA; }
 .dark .talk-feature { background: #181B21; border-color: #262A33; }
-.dark .talk-feature:hover { border-color: rgb(124 156 255 / .35); }
+.dark .talk-feature:hover { border-color: #7C9CFF; }
 
 .talk-feature__intro, .talk-feature__body { display: flex; flex-direction: column; gap: 12px; }
 .talk-feature__body .doc-links { margin-top: 12px; }
@@ -419,7 +419,8 @@ html.menu-open:not(.is-embedded) { overflow: hidden; }
   }
 }
 .shot--zoom { transition: transform .4s cubic-bezier(.2, .7, .2, 1), border-color .3s ease; }
-.shot--zoom:hover { transform: translateY(-4px); border-color: rgb(47 91 234 / .4); }
+.shot--zoom:hover { transform: translateY(-4px); border-color: #2F5BEA; }
+.dark .shot--zoom:hover { border-color: #7C9CFF; }
 
 /* ---------- Très grands écrans : contenu un peu plus large ---------- */
 @media (min-width: 1536px) { .max-w-site { max-width: 1240px; } }
