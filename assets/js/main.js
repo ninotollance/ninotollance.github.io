@@ -474,24 +474,19 @@
     // Carte mise en avant : la plus récente
     var f = done[0];
     var card = el('article', 'talk-feature group');
-    var media = el('div', 'talk-feature__media');
-    media.appendChild(el('span', 'talk-feature__placeholder', '[Capture du projet]'));
-    if (f.image) {
-      var img = el('img'); img.src = f.image; img.alt = (f.titre || ''); img.loading = 'lazy';
-      img.onerror = function () { img.remove(); };
-      media.appendChild(img);
-    }
-    var body = el('div', 'talk-feature__body');
+    // Colonne de gauche : numéro, titre, date. Colonne de droite : résumé et liens.
+    var intro = el('div', 'talk-feature__intro');
     var head = el('div', 'talk-feature__head');
     head.appendChild(el('span', 'talk-num', String(f.n).padStart(2, '0')));
     head.appendChild(el('span', 'talk-num__total', '/ ' + String(total).padStart(2, '0')));
     head.appendChild(el('span', 'talk-badge', t('soutenances.validated')));
-    body.appendChild(head);
-    body.appendChild(el('h3', 'talk-feature__title', (f.titre || '')));
-    if (f.date) body.appendChild(el('p', 'talk-date', dateLabel(f.date)));
+    intro.appendChild(head);
+    intro.appendChild(el('h3', 'talk-feature__title', (f.titre || '')));
+    if (f.date) intro.appendChild(el('p', 'talk-date', dateLabel(f.date)));
+    var body = el('div', 'talk-feature__body');
     if ((f.resume || '')) body.appendChild(el('p', 'talk-feature__text', (f.resume || '')));
     body.appendChild(docLinks(f, false));
-    card.appendChild(media); card.appendChild(body);
+    card.appendChild(intro); card.appendChild(body);
     featured.appendChild(card);
 
     // Les autres soutenances passées, en lignes compactes

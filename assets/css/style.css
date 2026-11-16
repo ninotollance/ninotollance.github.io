@@ -198,28 +198,21 @@ html.menu-open:not(.is-embedded) { overflow: hidden; }
 .talk-feature {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+  padding: 28px;
   border: 1px solid #E2E5EA; border-radius: 24px; overflow: hidden;
   background: #FFFFFF;
   transition: border-color .3s ease, box-shadow .3s ease;
 }
-@media (min-width: 900px) { .talk-feature { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); } }
+@media (min-width: 768px) { .talk-feature { padding: 36px; } }
+/* Grand écran : titre à gauche, résumé et documents à droite */
+@media (min-width: 900px) { .talk-feature { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 56px; padding: 44px; } }
 .talk-feature:hover { border-color: rgb(47 91 234 / .35); box-shadow: 0 20px 50px -24px rgb(47 91 234 / .35); }
 .dark .talk-feature { background: #181B21; border-color: #262A33; }
 .dark .talk-feature:hover { border-color: rgb(124 156 255 / .35); }
 
-.talk-feature__media { position: relative; aspect-ratio: 16 / 10; max-width: 100%; overflow: hidden; background: #E2E5EA; }
-.dark .talk-feature__media { background: #0F1115; }
-@media (min-width: 900px) { .talk-feature__media { aspect-ratio: auto; min-height: 340px; } }
-.talk-feature__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2, .7, .2, 1); }
-.talk-feature:hover .talk-feature__media img { transform: scale(1.04); }
-.talk-feature__placeholder {
-  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-  font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; color: #5B6270;
-}
-.dark .talk-feature__placeholder { color: #9AA1AD; }
-
-.talk-feature__body { padding: 28px; display: flex; flex-direction: column; gap: 12px; }
-@media (min-width: 768px) { .talk-feature__body { padding: 36px; } }
+.talk-feature__intro, .talk-feature__body { display: flex; flex-direction: column; gap: 12px; }
+.talk-feature__body .doc-links { margin-top: 12px; }
 .talk-badge {
   align-self: flex-start; font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 12px;
   padding: 4px 10px; border-radius: 6px; background: rgb(47 91 234 / .1); color: #2F5BEA;
@@ -394,8 +387,8 @@ html.menu-open:not(.is-embedded) { overflow: hidden; }
 }
 /* Mobile et tablette : la capture prend toute la largeur de la carte, sans marge autour */
 .project-card--split .shot--card img { border-radius: 0; }
-/* Grand écran : la capture remplit toute la moitié gauche de la carte, bord à bord,
-   recadrée en haut à gauche pour garder le logo et le titre */
+/* Grand écran : le visuel remplit toute la moitié gauche de la carte, bord à bord.
+   Il est déjà recadré sur le cœur de la page, donc on le centre simplement. */
 @media (min-width: 1024px) {
   .project-card--split .shot--card {
     position: relative; min-height: 420px;
@@ -404,7 +397,7 @@ html.menu-open:not(.is-embedded) { overflow: hidden; }
   .dark .project-card--split .shot--card { border-right-color: #262A33; }
   .project-card--split .shot--card img {
     position: absolute; inset: 0; width: 100%; height: 100%;
-    object-fit: cover; object-position: center top;
+    object-fit: cover; object-position: center;
   }
 }
 
@@ -427,11 +420,6 @@ html.menu-open:not(.is-embedded) { overflow: hidden; }
 }
 .shot--zoom { transition: transform .4s cubic-bezier(.2, .7, .2, 1), border-color .3s ease; }
 .shot--zoom:hover { transform: translateY(-4px); border-color: rgb(47 91 234 / .4); }
-
-/* Très grand écran : la colonne est assez large pour caler la capture à gauche (logo visible) */
-@media (min-width: 1536px) {
-  .project-card--split .shot--card img { object-position: left top; }
-}
 
 /* ---------- Très grands écrans : contenu un peu plus large ---------- */
 @media (min-width: 1536px) { .max-w-site { max-width: 1240px; } }
